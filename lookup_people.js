@@ -21,8 +21,9 @@ function dbQuery(err) {
       return console.error('error running query', err);
     }
     const queryResults = result.rows;
-    queryResults.forEach((entry, index) => { // to display the results a certain way
+    queryResults.forEach((entry, index) => { // to display the results a certain way, included index in parameter to display in results
       console.log(`- ${index + 1}: ${entry.first_name} ${entry.last_name} born '${moment(entry.birthdate).format('YYYY-MM-DD')}'`);
+      //  index + 1 to display index starting at 1 and not at 0
     });
     client.end();
   });
